@@ -2,7 +2,7 @@ function App() {
 
   return (
     <>
-      <h1>DevConnect!!!!!</h1>
+      <h1 className="">DevConnect!!!!!</h1>
     </>
   )
 }
