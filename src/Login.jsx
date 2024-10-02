@@ -1,7 +1,75 @@
+import { useState } from "react";
+import axios from "axios";
+
 const Login = () => {
+
+  const [emailId,setEmailId] = useState("userB@gmail.com");
+  const [password,setPassword] = useState("Abcd@123");
+
+  const handleLogin = async () => {
+    try{
+      const res = await axios.post("http://localhost:3000/login",{
+        emailId,
+        password,
+      }, {
+        withCredentials : true
+      });
+    }catch(err){
+      console.log(err);
+    }
+  };
+
   return (
-    <div>
-      login
+    <div className="grid grid-cols-6 mt-10">
+      <div className="col-start-2 col-span-4 card lg:card-side bg-base-200 shadow-xl">
+        <img
+          className="bg-cover rounded-t-xl lg:rounded-l-xl lg:rounded-tr-none"
+          src="https://static.designboom.com/wp-content/uploads/2024/06/vincent-van-gogh-starry-night-over-rhone-arles-exhibition-stars-designboom-500.jpeg"
+          alt="Album" />
+        <div className="card-body grid grid-cols-8">
+          <div className="col-start-2 col-span-6">
+            <div className="card-title justify-center text-2xl font-bold my-3">LOGIN</div>
+            <div className="flex-col ">
+                <label className="form-control w-full max-w-xs my-2">
+                  <div className="label">
+                    <span className="label-text text-lg">Email</span>
+                  </div>
+                  <input 
+                    value={emailId} 
+                    type="text" 
+                    placeholder="Type here" 
+                    className="input input-bordered w-full max-w-xs" 
+                    onChange = {(e) => setEmailId(e.target.value)}
+                  />
+                </label>
+
+                <label className="form-control w-full max-w-xs my-2">
+                  <div className="label">
+                    <span className="label-text text-lg">Password</span>
+                  </div>
+                  <input 
+                    value={password} 
+                    type="text" 
+                    placeholder="Type here" 
+                    className="input input-bordered w-full max-w-xs" 
+                    onChange = {(e) => setPassword(e.target.value)}
+                  />
+                  <div className="label">
+                    <span className="label-text-alt"></span>
+                    <span className="label-text-alt text-blue-400 ">Forgot Password?</span>
+                  </div>
+                </label>
+
+                <div className="flex justify-center my-6">
+                  <button 
+                    className="btn btn-secondary w-1/2"
+                    onClick={handleLogin}
+                  >Login</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
