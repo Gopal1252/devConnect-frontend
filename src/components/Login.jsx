@@ -9,6 +9,7 @@ const Login = () => {
 
   const [emailId,setEmailId] = useState("userB@gmail.com");
   const [password,setPassword] = useState("Abcd@123");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -23,6 +24,7 @@ const Login = () => {
       dispatch(addUser(res.data));
       return navigate("/");
     }catch(err){
+      setError(err?.response?.data || "Something went wrong!");
       console.log(err);
     }
   };
@@ -62,12 +64,8 @@ const Login = () => {
                     className="input input-bordered w-full max-w-xs" 
                     onChange = {(e) => setPassword(e.target.value)}
                   />
-                  <div className="label">
-                    <span className="label-text-alt"></span>
-                    <span className="label-text-alt text-blue-400 ">Forgot Password?</span>
-                  </div>
                 </label>
-
+                <p className="text-red-500">{error}</p>
                 <div className="flex justify-center my-6">
                   <button 
                     className="btn btn-secondary w-1/2"
