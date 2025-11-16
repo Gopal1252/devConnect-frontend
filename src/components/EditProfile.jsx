@@ -123,7 +123,7 @@ const EditProfile = ({user}) => {
         <div className="card card-compact bg-base-100 w-96 shadow-xl">
           <figure>
             <img
-              src={photoUrl} alt="photo" />
+              src={photoUrl}  alt="photo" />
           </figure>
           <div className="card-body">
             <div className="card-title text-2xl">{firstName + " " + lastName}</div>

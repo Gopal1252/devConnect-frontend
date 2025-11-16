@@ -34,7 +34,7 @@ const Navbar = () => {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src={user.photoUrl || "https://www.ihna.edu.au/blog/wp-content/uploads/2022/10/user-dummy.png"} />
+                src={user.photoUrl || "https://i.pinimg.com/736x/fa/60/51/fa6051d72b821cb48a8cc71d3481dfef.jpg"} />
             </div>
           </div>
           <ul
