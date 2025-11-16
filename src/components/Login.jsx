@@ -114,7 +114,7 @@ const Login = () => {
                   </div>
                   <input 
                     value={password} 
-                    type="text" 
+                    type="password" 
                     placeholder="" 
                     className="input input-bordered w-full max-w-xs" 
                     onChange = {(e) => setPassword(e.target.value)}
